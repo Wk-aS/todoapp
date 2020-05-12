@@ -1,0 +1,35 @@
+<ul class="list-group container">
+  <li
+    *ngFor="let todo of todos; let i = index"
+    class="list-group-item d-flex justify-content-between align-items-center"
+    [ngStyle]="{'background-color' : todo.isDone === true ?  'rgb(203, 198, 206)' : 'rgb(231, 216, 241)'
+    }"
+  >
+    <span [ngStyle]="{'color' : todo.isDone === true ? 'gray' : 'black' }" >{{ todo.title }}</span>
+    <span>
+      <div [ngClass]="{ 'custom-control': true, 'custom-switch': true }">
+        <input
+          *ngIf="!todo.isDone; else elseBlock"
+          type="checkbox"
+          class="custom-control-input"
+          id="customSwitch{{ i }}"
+          unchecked=""
+          (change)="removeItem(todo.title)"
+        />
+        <ng-template #elseBlock>
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="customSwitch{{ i }}"
+          checked=""
+          (change)="removeItem(todo.title)"
+        />
+        </ng-template>
+        <label
+          [ngClass]="['custom-control-label']"
+          for="customSwitch{{ i }}"
+        ></label>
+      </div>
+    </span>
+  </li>
+</ul>

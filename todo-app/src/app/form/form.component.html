@@ -1,0 +1,14 @@
+<form class="container jumbotron" (ngSubmit)="onSubmit()" >
+    <fieldset>
+        <h1>Login</h1>
+    </fieldset>
+    <fieldset>
+      <div class="form-group" >
+        <label for="exampleInputEmail1">Email address</label>
+        <input  required [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">      
+        <label for="exampleInputPassword1">Password</label>
+        <input required [(ngModel)]="password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </div>
+    </fieldset>
+</form>
